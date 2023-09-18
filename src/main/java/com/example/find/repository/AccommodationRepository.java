@@ -12,4 +12,16 @@ public interface AccommodationRepository extends JpaRepository<Accomdation,Long>
 
     @Query("select  a from Accomdation a join Room r on a.id= r.accomdation.id order by a.accomdationCount desc" )
     Page<Accomdation> findAllOrderBySale(PageRequest of);
+
+    @Query("select  a from Accomdation a " +
+            "join Room r on a.id= r.accomdation.id  " +
+            "where a.accomdationType='호텔'" +
+            "order by a.accomdationCount desc ")
+    List<Accomdation> findAllHotel();
+
+    @Query("select  a from Accomdation a " +
+            "join Room r on a.id= r.accomdation.id  " +
+            "where a.accomdationType='호텔'" +
+            "order by a.accomdationCount desc ")
+    List<Accomdation> findAllPension();
 }

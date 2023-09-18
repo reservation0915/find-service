@@ -15,4 +15,6 @@ public interface RoomRepository extends JpaRepository<Room,Long> {
 
     @Query("SELECT r from Room r inner join fetch Accomdation a on r.accomdation.id=a.id order by a.accomdationCount")
     List<Room> findAllRoomOrderBySale();
+
+
 }

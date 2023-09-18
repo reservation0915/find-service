@@ -10,6 +10,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/api/v1/find/accom")
@@ -46,6 +48,18 @@ public class AccomController {
         System.out.println("find all 요청이 들어옴");
 
         return accomService.findAllOrderBySale(PageRequest.of(page,size));
+    }
+
+    @GetMapping("/hotel")
+    public List<AccomResponse> findAllHotel(){
+
+        return accomService.findAllHotel();
+    }
+
+    @GetMapping("/pension")
+    public List<AccomResponse> findAllPension(){
+
+        return accomService.findAllPension();
     }
 
     //숙박 시설 아이디

@@ -52,4 +52,17 @@ public class AccomService {
         Page<Accomdation> all = accommodationRepository.findAllOrderBySale(of);
         return all.map(AccomResponse::of);
     }
+
+    public List<AccomResponse> findAllHotel() {
+
+        List<Accomdation> all = accommodationRepository.findAllHotel();
+        return all.stream().map(AccomResponse::of).toList();
+    }
+
+    public List<AccomResponse> findAllPension() {
+
+
+        List<Accomdation> all = accommodationRepository.findAllPension();
+        return all.stream().map(AccomResponse::of).toList();
+    }
 }
